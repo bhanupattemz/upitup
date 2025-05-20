@@ -188,7 +188,7 @@ function App() {
       <Header />
       <main className='main'>
         <div className="scene">
-          <div className="grid" style={{ gridTemplateColumns: `repeat(${n}, 100px)` }}>
+          <div className="grid" style={{ gridTemplateColumns: `repeat(${n}, 80px)` }}>
             {grid.map((row, rowInx) =>
               row.map((item, colInx) => (
                 <div

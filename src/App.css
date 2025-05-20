@@ -532,9 +532,45 @@
 
 /* Media queries */
 @media (max-width: 600px) {
-  .scene {
-    padding: 7px;
+  .scene{
+    padding: 20px;
   }
+  .grid{
+    box-shadow: -8px -8px 8px 8px #9db49d;
+  }
+  .cube {
+    width: 80px;
+    height: 80px;
+  }
+
+  .face {
+    width: 80px;
+    height: 80px;
+  }
+  .face.top {
+    transform: rotateX(0deg) translateZ(40px);
+  }
+
+  .face.bottom {
+    transform: rotateX(180deg) translateZ(40px);
+  }
+
+  .face.left {
+    transform: rotateY(-90deg) translateZ(40px);
+  }
+
+  .face.right {
+    transform: rotateY(90deg) translateZ(40px);
+  }
+
+  .face.front {
+    transform: rotateX(90deg) translateZ(40px);
+  }
+
+  .face.back {
+    transform: rotateX(-90deg) translateZ(40px);
+  }
+
 
 
   .win-popup-content {
