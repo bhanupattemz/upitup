@@ -4,9 +4,9 @@ export default function Footer() {
     return (
         <footer className="footer">
             <div className="footer-content">
-                <div className="copyright">
+                {/* <div className="copyright">
                     © {new Date().getFullYear()} XYZ
-                </div>
+                </div> */}
                 <div className="fun-message">
                     Made with ❤️ and 🧩 for kids everywhere!
                 </div>
