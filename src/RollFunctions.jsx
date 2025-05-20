@@ -1,9 +1,11 @@
 const wait = (num) => {
     return new Promise(resolve => setTimeout(resolve, num));
 };
-const up = async (row, col, grid, setGrid) => {
+const up = async (row, col, grid, setGrid, animate = true) => {
     const cubeRef = grid[row][col]?.ref?.current;
-    if (cubeRef) {
+    if (cubeRef && animate) {
+        const audio = new Audio('/drop-sound.mp3');
+        audio.play();
         const originalTransform = cubeRef.style.transform;
         cubeRef.style.transition = "transform 0.6s ease-in-out";
         cubeRef.style.transform = `rotateX(90deg) rotateY(-10deg) translateY(-300px)`;
@@ -28,9 +30,11 @@ const up = async (row, col, grid, setGrid) => {
     })
 }
 
-const down = async (row, col, grid, setGrid) => {
+const down = async (row, col, grid, setGrid, animate = true) => {
     const cubeRef = grid[row][col]?.ref?.current;
-    if (cubeRef) {
+    if (cubeRef && animate) {
+        const audio = new Audio('/drop-sound.mp3');
+        audio.play();
         const originalTransform = cubeRef.style.transform;
         cubeRef.style.transition = "transform 0.6s ease-in-out";
         cubeRef.style.transform = `rotateX(-90deg) rotateY(-10deg) translateY(300px)`;
@@ -57,9 +61,11 @@ const down = async (row, col, grid, setGrid) => {
     })
 }
 
-const left = async (row, col, grid, setGrid) => {
+const left = async (row, col, grid, setGrid, animate = true) => {
     const cubeRef = grid[row][col]?.ref?.current;
-    if (cubeRef) {
+    if (cubeRef && animate) {
+        const audio = new Audio('/drop-sound.mp3');
+        audio.play();
         const originalTransform = cubeRef.style.transform;
         cubeRef.style.transition = "transform 0.6s ease-in-out";
         cubeRef.style.transform = `rotateX(0deg) rotateY(-90deg) translateX(-300px)`;
@@ -83,9 +89,11 @@ const left = async (row, col, grid, setGrid) => {
     })
 }
 
-const right = async (row, col, grid, setGrid) => {
+const right = async (row, col, grid, setGrid, animate = true) => {
     const cubeRef = grid[row][col]?.ref?.current;
-    if (cubeRef) {
+    if (cubeRef && animate) {
+        const audio = new Audio('/drop-sound.mp3');
+        audio.play();
         const originalTransform = cubeRef.style.transform;
         cubeRef.style.transition = "transform 0.6s ease-in-out";
         cubeRef.style.transform = `rotateX(0deg) rotateY(90deg) translateX(300px)`;

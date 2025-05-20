@@ -1,8 +1,8 @@
 import './App.css'
 import { useState, useRef, createRef, useEffect } from "react"
 import { CheckSolution, SolveNum } from "./Check"
-import Header from './Layout/header';
-import Footer from './Layout/footer';
+import Header from './Layout/Header';
+import Footer from './Layout/Footer';
 import Timer from './Timer';
 import { Solution } from "./Solution"
 import { up, down, left, right } from "./RollFunctions"
@@ -13,6 +13,7 @@ const topImg = "/top.png";
 function App() {
   const n = 3
   const tempGrid = []
+  const [prevMoves, setPrevMoves] = useState([])
   const [time, setTime] = useState(0);
   const [steps, SetSteps] = useState(0)
   const [finalTime, setFinalTime] = useState(0)
@@ -70,8 +71,6 @@ function App() {
 
     try {
       SetSteps(prev => prev + 1)
-      const audio = new Audio('/drop-sound.mp3');
-      audio.play();
       let moved = false;
 
       for (let { nums: [dx, dy], fun } of directions) {
@@ -83,6 +82,7 @@ function App() {
           newCol >= 0 && newCol < n &&
           grid[newRow][newCol] === null
         ) {
+          setPrevMoves(prev => [...prev, [newRow, newCol]])
           await fun(rowInx, colInx, grid, setGrid);
 
           setGrid(prev => {
@@ -193,7 +193,10 @@ function App() {
               row.map((item, colInx) => (
                 <div
                   className="cube"
-                  onClick={() => roll(rowInx, colInx)}
+                  onClick={() => {
+
+                    roll(rowInx, colInx)
+                  }}
                   key={`${rowInx}-${colInx}`}
                   ref={item && item.ref}>
                   {item && item.nums?.map((num, ind) => (
@@ -224,9 +227,10 @@ function App() {
         </div>
         <div className="puzzle-controls">
           <button className="puzzle-btn shuffle-btn" onClick={() => window.location.href = "/"}>🔁 Refresh</button>
-          <button className="puzzle-btn solve-btn" onClick={() => {
+          <button className="puzzle-btn solve-btn" onClick={async () => {
             setSolved(true)
-            Solution(grid, setGrid, n, gridRef, SetSteps)
+            let temp = JSON.parse(JSON.stringify(prevMoves))
+            Solution(grid, setGrid, n, gridRef, SetSteps, temp)
           }}>✅ Solve</button>
         </div>
 

@@ -1,6 +1,6 @@
 import { up, down, left, right } from "./RollFunctions"
 import { CheckSolution } from "./Check";
-const Solution = async (grid, setGrid, n, gridRef, SetSteps) => {
+const Solution = async (grid, setGrid, n, gridRef, SetSteps, prevMoves) => {
 
     const wait = (num) => {
         return new Promise(resolve => setTimeout(resolve, num));
@@ -12,24 +12,20 @@ const Solution = async (grid, setGrid, n, gridRef, SetSteps) => {
         { nums: [0, -1], fun: left },
         { nums: [0, 1], fun: right }
     ]
-    const roll = async (rowInx, colInx) => {
+    const roll = async (rowInx, colInx, animate = true) => {
         const currentGrid = gridRef.current;
         try {
             SetSteps(prev => prev + 1)
-            const audio = new Audio('/drop-sound.mp3');
-            audio.play();
             let moved = false;
             for (let { nums: [dx, dy], fun } of directions) {
                 const newRow = rowInx + dx;
                 const newCol = colInx + dy;
-
                 if (
                     newRow >= 0 && newRow < n &&
                     newCol >= 0 && newCol < n &&
                     currentGrid[newRow][newCol] === null
                 ) {
-                    await fun(rowInx, colInx, currentGrid, setGrid);
-
+                    await fun(rowInx, colInx, currentGrid, setGrid, animate);
                     setGrid(prev => {
                         const newGrid = prev.map(row => row.map(cell => (cell ? { ...cell } : null)));
                         const cube = newGrid[rowInx][colInx];
@@ -51,7 +47,14 @@ const Solution = async (grid, setGrid, n, gridRef, SetSteps) => {
     // let mid = [1, 1]
     // let copyGrid = [...grid]
     // const solution = getSolution(copyGrid, n, mid, 50);
+    prevMoves.reverse()
     let solution = [[2, 1], [2, 0], [1, 0], [1, 1], [1, 2], [0, 2], [0, 1], [0, 0], [1, 0], [1, 1], [0, 1], [0, 2], [1, 2], [1, 1], [0, 1], [0, 0], [1, 0], [1, 1], [0, 1], [0, 2], [1, 2], [2, 2], [2, 1], [1, 1], [1, 0], [2, 0], [2, 1], [1, 1], [1, 0], [0, 0], [0, 1], [1, 1], [1, 2], [0, 2], [0, 1], [1, 1]]
+    
+    for (let data of prevMoves) {
+        roll(data[0], data[1], false)
+        await wait(100)
+    }
+    SetSteps(prev=>0)
     for (let data of solution) {
         roll(data[0], data[1])
         await wait(500)
