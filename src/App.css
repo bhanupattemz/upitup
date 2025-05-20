@@ -532,6 +532,11 @@
 
 /* Media queries */
 @media (max-width: 600px) {
+  .scene {
+    padding: 7px;
+  }
+
+
   .win-popup-content {
     padding: 20px 15px;
   }
