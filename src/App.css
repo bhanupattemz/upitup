@@ -154,8 +154,6 @@
 }
 
 
-/* win popup */
-/* Win Popup Styles */
 .win-popup {
   position: fixed;
   top: 0;
@@ -239,7 +237,6 @@
   }
 }
 
-/* Confetti animation */
 .win-popup-confetti-container {
   position: absolute;
   width: 100%;
@@ -293,7 +290,6 @@
   }
 }
 
-/* Stars animation */
 .win-popup-stars {
   position: absolute;
   width: 100%;
@@ -341,7 +337,6 @@
   }
 }
 
-/* Stats display */
 .win-popup-stats {
   display: flex;
   justify-content: space-between;
@@ -381,7 +376,6 @@
   color: #777;
 }
 
-/* Performance message */
 .win-popup-performance-message {
   background: #F7FFF7;
   border-radius: 15px;
@@ -415,8 +409,6 @@
   font-weight: bold;
   color: #333;
 }
-
-/* Action buttons */
 .win-popup-action-buttons {
   display: flex;
   gap: 15px;
@@ -462,7 +454,6 @@
   box-shadow: 0 2px 0 #2E9E95;
 }
 
-/* Character celebration */
 .win-popup-character-celebration {
   position: relative;
   margin-top: 30px;
@@ -529,8 +520,6 @@
     transform: translateY(-5px);
   }
 }
-
-/* Media queries */
 @media (max-width: 600px) {
   .scene{
     padding: 20px;

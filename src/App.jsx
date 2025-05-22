@@ -13,6 +13,7 @@ const topImg = "/top.png";
 function App() {
   const n = 3
   const tempGrid = []
+  const screenWidth = window.screen.width;
   const [prevMoves, setPrevMoves] = useState([])
   const [time, setTime] = useState(0);
   const [steps, SetSteps] = useState(0)
@@ -188,7 +189,7 @@ function App() {
       <Header />
       <main className='main'>
         <div className="scene">
-          <div className="grid" style={{ gridTemplateColumns: `repeat(${n}, 80px)` }}>
+          <div className="grid" style={{ gridTemplateColumns: `repeat(${n}, ${screenWidth < 600 ? "80px" : "100px"})` }}>
             {grid.map((row, rowInx) =>
               row.map((item, colInx) => (
                 <div

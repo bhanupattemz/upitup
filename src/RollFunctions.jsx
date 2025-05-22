@@ -6,6 +6,7 @@ const up = async (row, col, grid, setGrid, animate = true) => {
     if (cubeRef && animate) {
         const audio = new Audio('/drop-sound.mp3');
         audio.play();
+        await wait(50)
         const originalTransform = cubeRef.style.transform;
         cubeRef.style.transition = "transform 0.6s ease-in-out";
         cubeRef.style.transform = `rotateX(90deg) rotateY(-10deg) translateY(-300px)`;
@@ -35,6 +36,7 @@ const down = async (row, col, grid, setGrid, animate = true) => {
     if (cubeRef && animate) {
         const audio = new Audio('/drop-sound.mp3');
         audio.play();
+        await wait(50)
         const originalTransform = cubeRef.style.transform;
         cubeRef.style.transition = "transform 0.6s ease-in-out";
         cubeRef.style.transform = `rotateX(-90deg) rotateY(-10deg) translateY(300px)`;
@@ -66,6 +68,7 @@ const left = async (row, col, grid, setGrid, animate = true) => {
     if (cubeRef && animate) {
         const audio = new Audio('/drop-sound.mp3');
         audio.play();
+        await wait(50)
         const originalTransform = cubeRef.style.transform;
         cubeRef.style.transition = "transform 0.6s ease-in-out";
         cubeRef.style.transform = `rotateX(0deg) rotateY(-90deg) translateX(-300px)`;
@@ -94,6 +97,7 @@ const right = async (row, col, grid, setGrid, animate = true) => {
     if (cubeRef && animate) {
         const audio = new Audio('/drop-sound.mp3');
         audio.play();
+        await wait(50)
         const originalTransform = cubeRef.style.transform;
         cubeRef.style.transition = "transform 0.6s ease-in-out";
         cubeRef.style.transform = `rotateX(0deg) rotateY(90deg) translateX(300px)`;
