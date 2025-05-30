@@ -20,7 +20,7 @@ export default function Header() {
                                 <div className="rule-icon">🎯</div>
                                 <div>
                                     <h3>Objective:</h3>
-                                    <p>Roll all cubes so the <span className="highlight">rat image</span> appears on top of every cube!</p>
+                                    <p>Roll all the cubes so that the <span className='highlight'>rat image</span> appears on top, forming a specific alphabet shape!</p>
                                 </div>
                             </div>
 
@@ -59,7 +59,7 @@ export default function Header() {
                             </div>
                         </div>
 
-                        <button className="got-it-btn" onClick={()=>{setopen(false)}}>
+                        <button className="got-it-btn" onClick={() => { setopen(false) }}>
                             GOT IT! <span className="jumping-emoji">🎉</span>
                         </button>
                     </div>
@@ -69,7 +69,11 @@ export default function Header() {
                     <img src="/logo.png" alt="Puzzle Game Logo" className="logo bounce" />
                 </nav>
                 <div className="nav-links">
-                    <button className="nav-link rules-btn" onClick={()=>{setopen(true)}}>
+                    {window.location.pathname != "/" && <button className="nav-link rules-btn" onClick={() => { window.location.href = "/" }}>
+                        <span>🔲Templates</span>
+                    </button>}
+
+                    <button className="nav-link rules-btn" onClick={() => { setopen(true) }}>
                         <span>📖 Rules</span>
                     </button>
                 </div>
