@@ -580,7 +580,7 @@ h1 {
   }
 }
 
-@media (max-width: 1024px) {
+@media (max-width: 1023px) {
 
   .grid {
     grid-template-columns: repeat(3, 70px);
@@ -657,7 +657,14 @@ h1 {
   }
 
   .result-play-section>div {
-    max-width: 93% !important;
+    max-width: 95% !important;
+    width: 300px;
+  }
+  .result-image{
+    width: 95%;
+  }
+  .result-scene{
+    padding: 20px;
   }
 
   .grid {
