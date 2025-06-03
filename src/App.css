@@ -638,15 +638,19 @@ h1 {
   h1 {
     font-size: larger;
   }
-  h2{
+
+  h2 {
     font-size: large;
   }
-  p{
+
+  p {
     font-size: medium;
   }
-  button{
+
+  button {
     font-size: small !important;
   }
+
   .result-play-section {
     flex-direction: column-reverse;
     width: 100%;
@@ -658,13 +662,6 @@ h1 {
 
   .result-play-section>div {
     max-width: 95% !important;
-    width: 300px;
-  }
-  .result-image{
-    width: 95%;
-  }
-  .result-scene{
-    padding: 20px;
   }
 
   .grid {
@@ -742,4 +739,62 @@ h1 {
     gap: 10px;
     justify-content: space-evenly;
   }
+}
+
+
+@media (max-width: 373px) {
+
+  .scene {
+    padding: 20px 30px;
+  }
+
+  .result-play-section>div {
+    max-width: 95% !important;
+  }
+
+  .grid {
+    box-shadow: -8px -8px 8px 8px #9db49d;
+    gap: 10px;
+    grid-template-columns: repeat(3, 60px);
+    grid-template-rows: repeat(3, 60px);
+  }
+
+  .cube {
+    width: 60px;
+    height: 60px;
+  }
+
+  .face {
+    width: 60px;
+    height: 60px;
+  }
+
+
+  .face.top {
+    transform: rotateY(0deg) translateZ(30px);
+  }
+
+  .face.bottom {
+    transform: rotateY(180deg) translateZ(30px);
+  }
+
+  .face.left {
+    transform: rotateY(-90deg) translateZ(30px);
+  }
+
+  .face.right {
+    transform: rotateY(90deg) translateZ(30px);
+  }
+
+  .face.front {
+    transform: rotateX(-90deg) translateZ(30px);
+
+
+  }
+
+  .face.back {
+
+    transform: rotateX(90deg) translateZ(30px);
+  }
+
 }
