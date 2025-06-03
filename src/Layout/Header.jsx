@@ -70,7 +70,7 @@ export default function Header() {
                 </nav>
                 <div className="nav-links">
                     {window.location.pathname != "/" && <button className="nav-link rules-btn" onClick={() => { window.location.href = "/" }}>
-                        <span>🔲Templates</span>
+                        <span>🔲Modes</span>
                     </button>}
 
                     <button className="nav-link rules-btn" onClick={() => { setopen(true) }}>

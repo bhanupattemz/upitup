@@ -11,7 +11,7 @@ export default function App() {
       <Router>
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/:shape" element={<Shape />} />
+          <Route path="/puzzle/:level" element={<Shape />} />
         </Routes>
       </Router>
     </Fragment>

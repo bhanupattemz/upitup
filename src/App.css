@@ -1,6 +1,6 @@
 .main {
   width: auto;
-  min-height: 80vh;
+  min-height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -11,21 +11,32 @@ h2,
 p {
   font-family: Inter, -apple-system, BlinkMacSystemFont, sans-serif;
   color: var(--dark-gray);
-  line-height: 1.6;
+  /* line-height: 1.6; */
   text-align: center;
+}
+
+h1 {
+  margin: 5px;
 }
 
 .scene {
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
-  padding: 40px;
+  padding: 20px 40px 40px 40px;
+  height: 100%;
   border-radius: 20px;
   box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
-  margin: 20px auto;
+  margin: 20px 0px;
   border: 4px dashed var(--accent);
   background: linear-gradient(135deg, #efe1ca 0%, #c8e6c9 50%, #a5d6a7 100%);
   z-index: 100;
+}
+
+.scene>h2 {
+  margin-bottom: 30px;
+  color: #075B5E;
 }
 
 .grid {
@@ -34,6 +45,9 @@ p {
   justify-content: center;
   box-shadow: -10px -10px 10px 10px #9db49d;
   padding: 1px 10px 10px 1px;
+
+  grid-template-columns: repeat(3, 100px);
+  grid-template-rows: repeat(3, 100px);
 
 }
 
@@ -105,7 +119,6 @@ p {
   padding: 1rem;
   border-radius: 50px;
   margin: 20px auto;
-  max-width: 500px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   display: flex;
   justify-content: space-evenly;
@@ -179,6 +192,40 @@ p {
   align-items: center;
   animation: win-popup-fadeIn 0.3s ease-out;
   overflow-y: auto;
+}
+
+.result-play-section {
+  display: flex;
+  flex-wrap: wrap-reverse;
+  width: 100%;
+  justify-content: space-evenly;
+  align-items: center;
+  background-color: rgba(255, 255, 255, 0.511);
+  border-radius: 10px;
+}
+
+.result-play-section>div {
+  max-width: 45% !important;
+}
+
+.result-scene {
+  color: #075B5E;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px 0px;
+  border-radius: 20px;
+  max-width: 45% !important;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+  margin: 20px 0px;
+  border: 4px dashed var(--accent);
+  background: linear-gradient(135deg, #efe1ca 0%, #c8e6c9 50%, #a5d6a7 100%);
+  z-index: 100;
+}
+
+.result-image {
+  width: 84%;
 }
 
 @keyframes win-popup-fadeIn {
@@ -533,13 +580,91 @@ p {
   }
 }
 
+@media (max-width: 1024px) {
+
+  .grid {
+    grid-template-columns: repeat(3, 70px);
+    grid-template-rows: repeat(3, 70px);
+    gap: 15px;
+  }
+
+  .result-scene {
+    width: 350px;
+  }
+
+  .cube {
+    width: 70px;
+    height: 70px;
+  }
+
+  .face {
+    width: 70px;
+    height: 70px;
+  }
+
+
+  .face.top {
+    transform: rotateY(0deg) translateZ(35px);
+  }
+
+  .face.bottom {
+    transform: rotateY(180deg) translateZ(35px);
+  }
+
+  .face.left {
+    transform: rotateY(-90deg) translateZ(35px);
+  }
+
+  .face.right {
+    transform: rotateY(90deg) translateZ(35px);
+  }
+
+  .face.front {
+    transform: rotateX(-90deg) translateZ(35px);
+
+
+  }
+
+  .face.back {
+
+    transform: rotateX(90deg) translateZ(35px);
+  }
+
+
+
+}
+
 @media (max-width: 600px) {
+  h1 {
+    font-size: larger;
+  }
+  h2{
+    font-size: large;
+  }
+  p{
+    font-size: medium;
+  }
+  button{
+    font-size: small !important;
+  }
+  .result-play-section {
+    flex-direction: column-reverse;
+    width: 100%;
+  }
+
   .scene {
     padding: 20px;
   }
 
+  .result-play-section>div {
+    max-width: 93% !important;
+  }
+
   .grid {
     box-shadow: -8px -8px 8px 8px #9db49d;
+
+    grid-template-columns: repeat(3, 80px);
+    grid-template-rows: repeat(3, 80px);
   }
 
   .cube {
@@ -552,12 +677,13 @@ p {
     height: 80px;
   }
 
+
   .face.top {
-    transform: rotateX(0deg) translateZ(40px);
+    transform: rotateY(0deg) translateZ(40px);
   }
 
   .face.bottom {
-    transform: rotateX(180deg) translateZ(40px);
+    transform: rotateY(180deg) translateZ(40px);
   }
 
   .face.left {
@@ -569,12 +695,16 @@ p {
   }
 
   .face.front {
-    transform: rotateX(90deg) translateZ(40px);
+    transform: rotateX(-90deg) translateZ(40px);
+
+
   }
 
   .face.back {
-    transform: rotateX(-90deg) translateZ(40px);
+
+    transform: rotateX(90deg) translateZ(40px);
   }
+
 
 
 
@@ -598,5 +728,11 @@ p {
 
   .win-popup-action-buttons {
     flex-direction: column;
+  }
+
+  .puzzle-controls {
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: space-evenly;
   }
 }
